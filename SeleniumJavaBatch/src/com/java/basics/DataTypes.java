@@ -37,6 +37,14 @@ public class DataTypes {
 		short s2=130;
 		byte b2=(byte) s2;
 		System.out.println(b2);
+		
+		// Non primitive data types ---> String, Array etc
+		String str = "prashanth";
+		String sText = "Jayaa";
+		System.out.println(str);
+		System.out.println(str.toUpperCase());
+		System.out.println(str.length());
+		System.out.println(str + " " + sText);
 			
 
 	}

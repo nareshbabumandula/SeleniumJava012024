@@ -49,6 +49,19 @@ public class DataTypes {
 		// Array - Collection of similar data types
 		int[] marks = {40,50,80,90,65};
 		System.out.println(marks.length);
+		System.out.println(marks[0]);
+		System.out.println(marks[1]);
+		System.out.println(marks[2]);
+		System.out.println(marks[3]);
+		System.out.println(marks[4]);
+		
+		String[] names = {"praveen", "sneha", "yuvalakshmi", "prashanth", "rajan", "pavithra", "krisna"};
+		System.out.println(names.length);
+		System.out.println(names[0]);
+		System.out.println(names[1]);
+		System.out.println(names[2]);
+		System.out.println(names[3]);
+		
 		
 
 	}

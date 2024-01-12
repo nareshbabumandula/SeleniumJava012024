@@ -45,7 +45,11 @@ public class DataTypes {
 		System.out.println(str.toUpperCase());
 		System.out.println(str.length());
 		System.out.println(str + " " + sText);
-			
+		
+		// Array - Collection of similar data types
+		int[] marks = {40,50,80,90,65};
+		System.out.println(marks.length);
+		
 
 	}
 

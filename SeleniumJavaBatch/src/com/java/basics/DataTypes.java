@@ -61,8 +61,9 @@ public class DataTypes {
 		System.out.println(names[1]);
 		System.out.println(names[2]);
 		System.out.println(names[3]);
-		
-		
+		System.out.println(names[4]);
+		System.out.println(names[5]);
+		System.out.println(names[6]);
 
 	}
 

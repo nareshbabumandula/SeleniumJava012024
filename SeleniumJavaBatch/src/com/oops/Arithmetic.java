@@ -1,6 +1,6 @@
 package com.oops;
 
-public class Parent {
+public class Arithmetic {
 	
 	// State or Data or Characteristics or State
 	int a=10;
@@ -30,7 +30,7 @@ public class Parent {
 	
 
 	public static void main(String[] args) {
-		Parent p = new Parent();
+		Arithmetic p = new Arithmetic();
 		System.out.println(p.a);
 		System.out.println(p.b);
 		p.addition();

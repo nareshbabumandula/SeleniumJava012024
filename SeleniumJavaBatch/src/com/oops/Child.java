@@ -1,6 +1,6 @@
 package com.oops;
 
-public class Child extends Parent {
+public class Child extends Arithmetic {
 		
 	// State or Data or Characteristics or State
 	int a=100;

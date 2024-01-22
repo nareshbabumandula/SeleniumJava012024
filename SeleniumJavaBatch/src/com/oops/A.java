@@ -7,7 +7,7 @@ public class A {
 	void m1() {
 		System.out.println("Executing m1 method from A class..!");
 	}
-
+	
 	// no argument constructor
 	public A() {
 		System.out.println("This is a no argument constructor..!");

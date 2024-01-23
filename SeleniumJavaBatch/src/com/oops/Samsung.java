@@ -12,10 +12,22 @@ public class Samsung extends Television{
 		samsung.internetPort();
 		samsung.appStore();
 		
+		Samsung samsung1 = new Samsung();
 		// Upcasting -- Converting subtype to super type
 		Television tel = new Samsung(); // Samsung IS-A Television
-		
-		
+		tel.turnOnTV();
+		tel.changeChannel();
+		tel.changeVolume();
+		tel.pictureDisplay();
+		tel.turnOffTV();
+		tel.internetPort();
+	
+		/*
+		 * In Upcasting we can access all the overridden methods from the child class +
+		 * the unique methods from the parent class but not the unique methods of child
+		 * class
+		 */
+				
 	}
 
 	@Override

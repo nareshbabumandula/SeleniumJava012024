@@ -55,7 +55,7 @@ public class DataTypes {
 		System.out.println(marks[3]);
 		System.out.println(marks[4]);
 		
-		String[] names = {"praveen", "sneha", "yuvalakshmi", "prashanth", "rajan", "pavithra", "krisna"};
+		String[] names = {"praveen", "sneha", "yuvalakshmi", "prashanth", "rajan", "pavithra", "krishna"};
 		System.out.println(names.length);
 		System.out.println(names[0]);
 		System.out.println(names[1]);

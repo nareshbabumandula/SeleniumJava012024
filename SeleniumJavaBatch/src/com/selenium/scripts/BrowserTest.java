@@ -13,8 +13,13 @@ public class BrowserTest {
 		driver = new ChromeDriver();
 		driver.get("https://www.eyeglassworld.com");
 		driver.manage().window().maximize();
+		System.out.println(driver.getTitle());
+		System.out.println(driver.getCurrentUrl());
 		driver.findElement(By.id("inputStoreValue")).sendKeys("Tampa");
 		driver.findElement(By.xpath("//button[@class='a-btn a-btn--primary  a-btn--is-slim m-store-finder__submit']")).click();
+		driver.navigate().back();
+		driver.navigate().forward();
+		driver.navigate().refresh();
 	}
 	
 	void closeBrowser() throws InterruptedException {

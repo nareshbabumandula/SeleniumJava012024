@@ -28,6 +28,10 @@ public class StringMethods {
 		System.out.println(s.hashCode());
 		System.out.println(s2.hashCode());
 		System.out.println(s.equals(s2)); // Value comparison
+		
+		String strText = "                  welcome to java training              ";
+		System.out.println(strText);
+		System.out.println(strText.trim());
 	}
 
 }

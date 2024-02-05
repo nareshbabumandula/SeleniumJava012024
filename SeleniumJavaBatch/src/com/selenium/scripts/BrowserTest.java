@@ -3,14 +3,33 @@ package com.selenium.scripts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserTest {
 	
 	WebDriver driver;
 	
-	void accessSite() {
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-		driver = new ChromeDriver();
+	void accessSite(String browser) {
+		
+		switch (browser.toLowerCase().trim()) {
+		case "chrome":
+			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			driver = new ChromeDriver();
+			break;
+		case "edge":
+			System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
+			driver = new EdgeDriver();
+			break;
+		case "firefox":
+			System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+			driver = new FirefoxDriver();
+			break;
+		default:
+			System.out.println("Invalid browser");
+			break;
+		}
+				
 		driver.get("https://www.eyeglassworld.com");
 		driver.manage().window().maximize();
 		System.out.println(driver.getTitle());
@@ -30,7 +49,7 @@ public class BrowserTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		BrowserTest bt = new BrowserTest();
-		bt.accessSite();
+		bt.accessSite("edge");
 		bt.closeBrowser();
 	}
 

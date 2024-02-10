@@ -53,7 +53,18 @@ public class SeleniumLocators {
 		driver.findElement(By.xpath("//input[@id='user']")).sendKeys("Sneha");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user']")).clear();
+				
+		driver.findElement(By.linkText("Sample Forms")).click();
 		
+		// Absolute xpath - starts from the root/parent node with a preceding single slash (/)
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/form/table/tbody/tr[2]/td/input")).sendKeys("Test Subject");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/form/table/tbody/tr[2]/td/input")).clear();
+		
+		// Relative xpath - Starts from the node of our choice with a preceding double slash (//)
+		driver.findElement(By.xpath("//table/tbody/tr[2]/td/input")).sendKeys("Test Subject123");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//table/tbody/tr[2]/td/input")).clear();
 		Thread.sleep(4000);
 		driver.quit();
 	}

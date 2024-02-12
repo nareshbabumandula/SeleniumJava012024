@@ -4,12 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class SeleniumLocators {
 
 	static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get("https://www.mycontactform.com/");
 		driver.manage().window().maximize();
@@ -67,14 +70,14 @@ public class SeleniumLocators {
 		driver.findElement(By.xpath("//table/tbody/tr[2]/td/input")).clear();
 
 		// Absolute CSS path - Starts from the root/parent node with no preceding slash (/)
-		driver.findElement(By.xpath("html>body>div:nth-of-type(3)>div:nth-of-type(3)>form>table>tbody>tr:nth-of-type(2)>td>input")).sendKeys("Subject for Testing");
+		driver.findElement(By.cssSelector("html>body>div:nth-of-type(3)>div:nth-of-type(3)>form>table>tbody>tr:nth-of-type(2)>td>input")).sendKeys("Subject for Testing");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("html>body>div:nth-of-type(3)>div:nth-of-type(3)>form>table>tbody>tr:nth-of-type(2)>td>input")).clear();
+		driver.findElement(By.cssSelector("html>body>div:nth-of-type(3)>div:nth-of-type(3)>form>table>tbody>tr:nth-of-type(2)>td>input")).clear();
 
 		// Relative CSS path - Starts from the node of our choice with no preceding slash (/)
-		driver.findElement(By.xpath("table>tbody>tr:nth-of-type(2)>td>input")).sendKeys("Test Subject111");
+		driver.findElement(By.cssSelector("table>tbody>tr:nth-of-type(2)>td>input")).sendKeys("Test Subject111");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("table>tbody>tr:nth-of-type(2)>td>input")).clear();
+		driver.findElement(By.cssSelector("table>tbody>tr:nth-of-type(2)>td>input")).clear();
 
 		// Relative XPath with starts-with function
 		driver.findElement(By.xpath("//input[starts-with(@id,'user')]")).sendKeys("Prashanth");

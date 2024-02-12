@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BrowserTest {
 	
 	WebDriver driver;
@@ -14,15 +16,18 @@ public class BrowserTest {
 		
 		switch (browser.toLowerCase().trim()) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "edge":
-			System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
+			//System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			break;
 		case "firefox":
-			System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
 		default:

@@ -20,10 +20,11 @@ public class XPathAxesTest {
 	public void xpathaxesExamples() throws InterruptedException {
 		driver.get("https://www.mycontactform.com/");
 		driver.manage().window().maximize();
+						
 		try {
 			driver.findElement(By.linkText("Sample Forms")).click();	
 			//Ancestor Axes
-			driver.findElement(By.xpath("//input[@id='pass']/ancestor::fieldset/div/input[@id='user']")).sendKeys("keerthana@gmail.com");
+			driver.findElement(By.xpath("//input[@id='pass']/ancestor::fieldset/div/input")).sendKeys("keerthana@gmail.com");
 			Thread.sleep(1000);
 			driver.findElement(By.xpath("//input[@id='pass']/ancestor::fieldset/div/input[@id='user']")).clear();
 			//Ancestor-or-self Axes

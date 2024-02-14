@@ -57,6 +57,26 @@ public class SeleniumLocators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user']")).clear();
 
+		// xpath with AND operator
+		driver.findElement(By.xpath("//input[@id='user' and @type='text']")).sendKeys("Naresh");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='user' and @type='text']")).clear();
+
+		// xpath with OR operator
+		driver.findElement(By.xpath("//input[@id='user' or @type='text']")).sendKeys("Shiva");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='user' or @type='text']")).clear();
+
+		// CSS with AND operator
+		driver.findElement(By.xpath("input[id='user'][type='text']")).sendKeys("peter");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("input[id='user'][type='text']")).clear();
+		
+		// CSS with OR operator
+		driver.findElement(By.xpath("input[id='user'],[type='text']")).sendKeys("john");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("input[id='user'],[type='text']")).clear();
+
 		driver.findElement(By.linkText("Sample Forms")).click();
 
 		// Absolute xpath - Starts from the root/parent node with a preceding single slash (/)
@@ -103,6 +123,7 @@ public class SeleniumLocators {
 		driver.findElement(By.cssSelector("input[id*='ser']")).sendKeys("Rajan");
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("input[id*='ser']")).clear();
+
 
 		Thread.sleep(4000);
 		driver.quit();

@@ -11,8 +11,8 @@ public class UncheckedExceptionsTest {
 			String str="hello";
 			System.out.println(str.length());
 			int a=10;
-			int b=10;
-			int c=a/b;
+			int b=0;
+			int c=a/b; // Here the exception is going to occur at run-time hence this exception is called as unchecked or run-time expeption
 			System.out.println("Division output of a and b is : " +c);
 			int[] marks = {10,20,60,55};
 			System.out.println(marks[0]);
@@ -22,10 +22,13 @@ public class UncheckedExceptionsTest {
 			bflag=true;
 		} catch (ArithmeticException e) {
 			System.out.println("ArithmeticException catch block..!");
+			e.printStackTrace();
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("ArrayIndexOutOfBoundsException catch block..!");
+			e.printStackTrace();
 		} catch (RuntimeException e) {
 			System.out.println("RuntimeException catch block..!");
+			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());

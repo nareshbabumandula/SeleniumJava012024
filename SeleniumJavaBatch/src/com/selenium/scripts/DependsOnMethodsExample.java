@@ -16,6 +16,12 @@ public class DependsOnMethodsExample {
 	void accessSite() {
 		System.out.println("Accessed amazon site");
 	}
+	
+	@AfterClass
+	void viewReceipt() {
+		System.out.println("viewed the receipt");
+	}
+	
 	@BeforeTest
 	void login() {
 		System.out.println("loggged in to the amazon application");
@@ -45,10 +51,7 @@ public class DependsOnMethodsExample {
 	void checkOut() {
 		System.out.println("checked out the product");
 	}
-	@AfterClass
-	void viewReceipt() {
-		System.out.println("viewed the receipt");
-	}
+
 	@AfterTest
 	void logout() {
 		System.out.println("logged out from the application");

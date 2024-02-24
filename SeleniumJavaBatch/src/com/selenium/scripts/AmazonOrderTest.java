@@ -11,16 +11,12 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AmazonOrderTest {
-
-	@BeforeSuite
-	void accessSite() {
-		System.out.println("Accessed amazon site");
-	}
-	@BeforeTest
+	
+	@BeforeTest(groups = {"smoke"})
 	void login() {
-		System.out.println("loggged in to the amazon application");
+		System.out.println("logged in to the amazon application");
 	}
-	@BeforeClass
+	@BeforeClass(groups = {"smoke"})
 	void searchProduct() {
 		System.out.println("searched the product");
 	}
@@ -35,7 +31,7 @@ public class AmazonOrderTest {
 		System.out.println("verified product quantity");
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 1, groups = {"smoke"})
 	void addToCart() {
 		System.out.println("added the product to the cart");
 	}
@@ -51,7 +47,7 @@ public class AmazonOrderTest {
 	void selectPaymentMode() {
 		System.out.println("selected payment mode");
 	}
-	@Test(priority = 2)
+	@Test(priority = 2, groups = {"smoke"})
 	void checkOut() {
 		System.out.println("checked out the product");
 	}
@@ -61,15 +57,10 @@ public class AmazonOrderTest {
 		System.out.println("viewed the receipt");
 	}
 	
-	@AfterTest
+	@AfterTest(groups = {"smoke"})
 	void logout() {
 		System.out.println("logged out from the application");
 	}
-	
-	@AfterSuite
-	void closeBrowser() {
-		System.out.println("closed the browser");
-	}
-	
+
 	
 }

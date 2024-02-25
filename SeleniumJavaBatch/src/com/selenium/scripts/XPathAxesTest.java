@@ -83,7 +83,6 @@ public class XPathAxesTest {
 	}
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
 		report.endTest(test);
 		report.flush();
 		driver.quit();

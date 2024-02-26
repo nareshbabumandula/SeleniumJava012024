@@ -1,6 +1,15 @@
 package com.selenium.scripts;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -11,21 +20,49 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import jxl.Sheet;
+import jxl.Workbook;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+public class ReadExcelDataProvider {
 
-public class TestNGParametersExample {
+
+	@DataProvider(name="userLogin")
+	public Object[][] loginData() throws FileNotFoundException{
+		Object[][] arrayObject = getExcelData("./files/Test Data.xls", "Data") ;
+		return arrayObject;
+	}
+
+	public String[][] getExcelData(String fileName, String sheetName) throws FileNotFoundException{
+		String[][] arrayExcelData = null;
+
+		try {
+			FileInputStream fs = new FileInputStream(fileName);
+			Workbook wb = Workbook.getWorkbook(fs);
+
+			Sheet sh = wb.getSheet("Data");
+			int nRows = sh.getRows();
+			int nColumns = sh.getColumns();
+
+			arrayExcelData = new String[nRows-1][nColumns];
+
+			for(int i=1; i<nRows;i++) {
+				for(int j=0;j<nColumns;j++) {
+					arrayExcelData[i-1][j] = sh.getCell(j,i).getContents();
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return arrayExcelData;
+	}
 
 	WebDriver driver;
 	static ExtentTest test;
 	static ExtentReports report;
 
-	@Parameters({"username", "password"})
-	@Test(retryAnalyzer = MyRetry.class)
+	@Test(retryAnalyzer = MyRetry.class, dataProvider = "userLogin")
 	public void verifyLogin(String username, String password) {
 		String errMsg="";
 		boolean bFlag=false;
@@ -51,12 +88,11 @@ public class TestNGParametersExample {
 		}
 	}
 
-	@Parameters({"url"})
 	@BeforeClass
 	public void accessSite(String URL) {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.get(URL);
+		driver.get("https://www.mycontactform.com");
 		driver.manage().window().maximize();
 		report = new ExtentReports("./ExtentReportResults.html");
 		test =report.startTest("TestNG Parameters");
@@ -70,6 +106,5 @@ public class TestNGParametersExample {
 		report.endTest(test);
 		report.flush();
 	}
-
 
 }

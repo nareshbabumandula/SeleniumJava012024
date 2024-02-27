@@ -1,5 +1,6 @@
 package com.selenium.scripts;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -31,11 +32,12 @@ public class AmazonOrderTest {
 		System.out.println("verified product quantity");
 	}
 	
-	@Test(priority = 1, groups = {"smoke"})
+	@Test(priority = 1, groups = {"smoke"}, invocationCount = 4)
 	void addToCart() {
+		Assert.assertEquals(true, true);
 		System.out.println("added the product to the cart");
 	}
-	@Test(priority = 3)
+	@Test(priority = 3, enabled = false)
 	void selectDeliveryAddress() {
 		System.out.println("selected the delivery address");
 	}
@@ -47,7 +49,7 @@ public class AmazonOrderTest {
 	void selectPaymentMode() {
 		System.out.println("selected payment mode");
 	}
-	@Test(priority = 2, groups = {"smoke"})
+	@Test(priority = 2, groups = {"smoke"}, dependsOnMethods = {"addToCart"}, alwaysRun = true)
 	void checkOut() {
 		System.out.println("checked out the product");
 	}

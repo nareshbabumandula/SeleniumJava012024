@@ -7,10 +7,10 @@
   <parameter name="password" value="Secure*12"></parameter>
   
     <classes>
-      <class name="com.selenium.scripts.AmazonOrderTest"/>
-      <class name="com.selenium.scripts.Base"/>
+      <!--class name="com.selenium.scripts.AmazonOrderTest"/-->
+      <!--class name="com.selenium.scripts.Base"/-->
       <!--class name="com.selenium.scripts.DependsOnMethodsExample"/-->
-      <!--class name="com.selenium.scripts.TestNGParametersExample"/-->
+      <class name="com.selenium.scripts.TestNGParametersExample"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

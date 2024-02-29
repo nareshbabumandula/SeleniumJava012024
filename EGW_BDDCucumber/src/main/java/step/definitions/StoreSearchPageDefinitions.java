@@ -29,7 +29,8 @@ public class StoreSearchPageDefinitions {
 	public void i_search_for_a_store_based_on_name(String string) {
 		driver.getDriver().findElement(By.xpath("//input[@placeholder='City, State, or ZIP code']")).sendKeys(string);
 		driver.getDriver().findElement(By.xpath("//button[contains(text(),'Find a Store')]")).click();
-	    System.out.println("Searched an eye glass store based on city name");
+	    System.out.println("Searched an eye glass store based on city/state/zipcode : " + string);
+	    Hooks.getExtentTest().log(LogStatus.PASS, "Searched an eye glass store based on city/state/zipcode : " + string);
 	}
 	
 	@Then("I should see the appropriate results")

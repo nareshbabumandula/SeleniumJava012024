@@ -8,8 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.main.WebDriverSingleton;
+import com.main.Base;
 
 public class ExplicitWaitUtils {
 
@@ -17,7 +16,7 @@ public class ExplicitWaitUtils {
     private WebDriverWait wait;
 
     public ExplicitWaitUtils(WebDriver driver) {
-        this.driver = WebDriverSingleton.getDriver();
+        this.driver = Base.getDriver();
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(60)); // You can adjust the timeout as needed
       
     }

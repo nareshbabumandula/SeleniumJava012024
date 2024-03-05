@@ -4,7 +4,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import com.main.WebDriverSingleton;
+
+import com.main.Base;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -25,7 +26,7 @@ public class Hooks{
 
 	@Before(order=0) 
 	public void setup() {
-		driver = WebDriverSingleton.getDriver();
+		driver = Base.getDriver();
 		System.out.println("This will run before the Scenario with order one"); 
 		if (report == null) {
 			report = new ExtentReports("./target/ExtentReport/ExtentResults.html");
@@ -45,7 +46,7 @@ public class Hooks{
 		if (scenario.isFailed()) {
 			try {
 				System.out.println(scenario.getName() + " is Failed");
-				final byte[] screenshot = ((TakesScreenshot) WebDriverSingleton.getDriver()).getScreenshotAs(OutputType.BYTES);
+				final byte[] screenshot = ((TakesScreenshot) Base.getDriver()).getScreenshotAs(OutputType.BYTES);
 				scenario.attach(screenshot, "image/png", scenario.getName()); 
 			} catch (WebDriverException e) {
 				e.printStackTrace();

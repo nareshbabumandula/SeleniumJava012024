@@ -7,7 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.main.WebDriverSingleton;
+import com.main.Base;
+
 
 public class SearchPage {
 	
@@ -26,7 +27,7 @@ public class SearchPage {
 	public WebElement VisitStorePage;
 	
 	public SearchPage(WebDriver driver){
-		this.driver=WebDriverSingleton.getDriver();
+		this.driver=Base.getDriver();
 		PageFactory.initElements(driver,this);
 	}
 

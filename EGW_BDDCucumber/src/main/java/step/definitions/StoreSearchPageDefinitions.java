@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import com.main.Base;
+import com.page.objects.SearchPage;
 import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,8 +13,8 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class StoreSearchPageDefinitions {
-
-
+	SearchPage sp;	
+	
 	@Given("I access eyeglassworld website")
 	public void accessSite() {
 		WebDriverManager.chromedriver().setup();
@@ -43,6 +44,19 @@ public class StoreSearchPageDefinitions {
 				Hooks.getExtentTest().log(LogStatus.FAIL, "City/State/Zipcode name is not found in the search results heading");
 				System.out.println("City/State/Zipcode is not found in the search results heading");
 			}
+			// Initialize page factory elements
+			sp = new SearchPage(Base.getDriver());
+					
+			if (sp.storeClosed.size()>0) {
+				System.out.println("Store is closed..!");
+				Hooks.getExtentTest().log(LogStatus.PASS, "Store status is displayed as closed");
+			}
+			
+			if (sp.storeOpen.size()>0) {
+				System.out.println("Store is opened..!");
+				Hooks.getExtentTest().log(LogStatus.PASS, "Store status is displayed as open");
+			}
+			
 		} catch (Exception e) {
 			Hooks.getExtentTest().log(LogStatus.FAIL, "City/State/Zipcode name is not found in the search results heading");
 			System.out.println("City/State/Zipcode is not found in the search results heading");

@@ -32,6 +32,7 @@ public class ArrayListExample {
 		 * 2. ArrayList maintains insertion order
 		 * 3. ArrayList does not having sorting
 		 * 4. ArrayList accepts duplicate elements
+		 * 5. ArrayList is preferred when we don't have manipulations, just store and retrieve
 		 */
 		ArrayList alist = new ArrayList();
 		alist.add(10);
@@ -96,8 +97,7 @@ public class ArrayListExample {
 		List list1 = new ArrayList(); // upcasting -> Converting sub type to its immediate super type
 		ArrayList alist3 = (ArrayList)list1; // Converting supertype to its immediate subtype
 		//List list2 = new List(); not possible since List is an interface
-
-
+		
 	}
 
 }

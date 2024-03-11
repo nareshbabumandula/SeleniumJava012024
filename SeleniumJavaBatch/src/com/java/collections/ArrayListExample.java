@@ -3,6 +3,8 @@ package com.java.collections;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class ArrayListExample {
 
@@ -97,6 +99,11 @@ public class ArrayListExample {
 		List list1 = new ArrayList(); // upcasting -> Converting sub type to its immediate super type
 		ArrayList alist3 = (ArrayList)list1; // Converting supertype to its immediate subtype
 		//List list2 = new List(); not possible since List is an interface
+		
+		Set<String> set = new TreeSet<>();
+		set.addAll(arrList);
+		System.out.println(set);
+		
 		
 	}
 

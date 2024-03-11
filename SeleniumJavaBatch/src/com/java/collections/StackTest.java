@@ -14,7 +14,7 @@ public class StackTest {
 
 	public static void main(String[] args) {
 		
-		/*Satck is a subclass of Vecto
+		/*Stack is a subclass of Vector
 		 * 1. Implements LIFO (Last-in-first-out) data structure and additionally contains push(), peek() and push(object o)
 		 * 2. Insertion Order is maintained
 		 * 2. Accepts duplicate elements

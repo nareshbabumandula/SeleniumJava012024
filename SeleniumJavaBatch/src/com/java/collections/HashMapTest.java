@@ -35,7 +35,7 @@ public class HashMapTest {
         System.out.println(map.containsKey(2));
         System.out.println(map.get(5));
         System.out.println(map.size());
-
+        
         Iterator<String> iter = map.values().iterator();
         while(iter.hasNext()){
             System.out.println(iter.next());
@@ -62,6 +62,15 @@ public class HashMapTest {
         for (Map.Entry<Integer, String> e : map.entrySet()){
             System.out.println("Key: " + e.getKey() + " Value: " + e.getValue());
         }
+        
+        HashMap<Integer, String> map2 = new HashMap<Integer, String>();
+        map2.put(10, "Sikuli");
+        map2.put(11, "Winium");
+        System.out.println(map1.equals(map2));
+        System.out.println(map1.keySet());
+        System.out.println(map2.keySet());
+        System.out.println(map1.keySet().equals(map2.keySet()));
+        
     }
 
 }

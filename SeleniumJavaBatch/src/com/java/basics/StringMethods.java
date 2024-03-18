@@ -8,6 +8,7 @@ public class StringMethods {
 		System.out.println(sText.toUpperCase());
 		System.out.println(sText.length());
 		System.out.println(sText.hashCode());
+		System.out.println(sText.charAt(0));
 		
 		// Syntax 2: Defining a String by creating an object reference for a String class
 		String str = new String("SNEHA");

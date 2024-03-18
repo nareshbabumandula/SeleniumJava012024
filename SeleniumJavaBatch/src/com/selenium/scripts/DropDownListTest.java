@@ -41,8 +41,11 @@ public class DropDownListTest {
 		
 		System.out.println("Iterating through the predefined countries dropdown items via for each loop..!");
 		for (WebElement country : options) {
-			System.out.println(country.getText());
+			if (country.getText().charAt(0)=='A') {
+				System.out.println(country.getText());
+			}
 		}
+		
 		System.out.println("Iterating through the predefined countries dropdown items via for loop..!");
 		for (int i = 0; i < options.size(); i++) {
 			System.out.println(options.get(i).getText());

@@ -26,6 +26,12 @@ public class SearchPage {
 	@FindBy(xpath = "//a[@title='Visit Store Page']")
 	public WebElement VisitStorePage;
 	
+	@FindBy(xpath="//span[@class='Hours-status--closed']/span[contains(text(),'Closed')]")
+	public List<WebElement> storeClosed;
+	
+	@FindBy(xpath="//span[@class='Hours-status--closed']/span[contains(text(),'Open')]")
+	public List<WebElement> storeOpen;
+		
 	public SearchPage(WebDriver driver){
 		this.driver=Base.getDriver();
 		PageFactory.initElements(driver,this);

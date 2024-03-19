@@ -123,8 +123,7 @@ public class SeleniumLocators {
 		driver.findElement(By.cssSelector("input[id*='ser']")).sendKeys("Rajan");
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("input[id*='ser']")).clear();
-
-
+		
 		Thread.sleep(4000);
 		driver.quit();
 	}

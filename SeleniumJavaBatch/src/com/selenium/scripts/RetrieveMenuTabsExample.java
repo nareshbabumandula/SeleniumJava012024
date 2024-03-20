@@ -17,11 +17,11 @@ public class RetrieveMenuTabsExample {
 	@Test
 	public void getMenuTabs() {
 		List<WebElement> tabs = driver.findElements(By.xpath("//ul[contains(@class,'nav navbar-nav')]/li/a"));
-		List<WebElement> submenus = driver.findElements(By.xpath("//ul[contains(@class,'nav navbar-nav')]/li[@class=\"dropdown\"]/div/div/ul/li/a"));
 		for (WebElement menutab : tabs) {
 			System.out.println(menutab.getText());
 		}
 		
+		List<WebElement> submenus = driver.findElements(By.xpath("//ul[contains(@class,'nav navbar-nav')]/li[@class=\"dropdown\"]/div/div/ul/li/a"));
 		System.out.println("Sub menus listed here..!");
 		for (WebElement submenu : submenus) {
 			System.out.println(submenu.getText());

@@ -3,6 +3,7 @@ package com.selenium.scripts;
 import java.io.File;
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -23,12 +24,12 @@ public class TakeScreenShotTest{
 	static ExtentReports report;
 	WebDriver driver;
 	
-	@Test(groups = {"smoke"})
+	@Test
 	public void captureScreenshot() throws InterruptedException {
 		boolean bFlag=false;
 				
 		try {
-			TakesScreenshot srcShot = (TakesScreenshot)driver;
+			TakesScreenshot srcShot = (TakesScreenshot)driver; 
 			File srcFile = srcShot.getScreenshotAs(OutputType.FILE);
 		    File destFile = new File("./screenshots/Failed.png");
 		    Files.copy(srcFile, destFile);
@@ -43,9 +44,7 @@ public class TakeScreenShotTest{
 				test.log(LogStatus.FAIL, "Failed to capture the screenshot");
 			}
 		}
-		
 	}
-	
 	
 
 	@BeforeClass

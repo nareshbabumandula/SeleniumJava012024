@@ -103,7 +103,7 @@ public class ArrayListExample {
 		Set<String> set = new TreeSet<>();
 		set.addAll(arrList);
 		System.out.println(set);
-		
+	
 		
 	}
 
